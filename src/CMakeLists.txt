@@ -17,17 +17,18 @@ add_library(lasso STATIC ${SOURCES_Fortran})
 add_executable(lasso_main ${SOURCES_Fortran_Main})
 target_link_libraries(lasso_main PRIVATE lasso)
 
-add_library(lasso_shared SHARED ${SOURCES_Fortran})
-set_target_properties(lasso_shared PROPERTIES OUTPUT_NAME lasso)
+# add_library(lasso_shared SHARED ${SOURCES_Fortran})
+# set_target_properties(lasso_shared PROPERTIES OUTPUT_NAME lasso)
 
 ## lapack
 set_property(TARGET lasso_main APPEND PROPERTY LINK_FLAGS "${LAPACK_LINKER_FLAGS}")
 target_link_libraries(lasso_main PRIVATE ${LAPACK_LIBRARIES})
 set_property(TARGET lasso APPEND PROPERTY LINK_FLAGS "${LAPACK_LINKER_FLAGS}")
 target_link_libraries(lasso PRIVATE ${LAPACK_LIBRARIES})
-set_property(TARGET lasso_shared APPEND PROPERTY LINK_FLAGS "${LAPACK_LINKER_FLAGS}")
-target_link_libraries(lasso_shared PRIVATE ${LAPACK_LIBRARIES})
+# set_property(TARGET lasso_shared APPEND PROPERTY LINK_FLAGS "${LAPACK_LINKER_FLAGS}")
+# target_link_libraries(lasso_shared PRIVATE ${LAPACK_LIBRARIES})
 
 ## install the binary
-install(TARGETS lasso lasso_shared lasso_main RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+# install(TARGETS lasso lasso_shared lasso_main RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(TARGETS lasso lasso_main RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
