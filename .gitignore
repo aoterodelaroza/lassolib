@@ -10,3 +10,6 @@ main
 # emacs backups
 *~
 
+# some auxiliary files
+gmon.out
+octavedump.dat
