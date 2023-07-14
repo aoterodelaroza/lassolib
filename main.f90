@@ -1,5 +1,5 @@
 program lasso_fortran
-  use lassofun, only: lasso_active_set
+  use wrappers, only: lasso_for_acps
   implicit none
 
   integer, parameter :: lu = 10
@@ -94,10 +94,7 @@ program lasso_fortran
   write (*,*) "## DONE"
   close(lu)
 
-  beta = lasso_active_set(x,y,1d0)
-  wrms = sqrt(sum((y - matmul(x,beta))**2))
-  write (*,*) "wrms = ", wrms
-  beta = lasso_active_set(x,y,2d0,threshold=1d-9,maxiter=5000,w0=beta,verbose=.true.)
+  beta = lasso_for_acps(int(nrows,4),int(ncols,4),x,y,10d0,maxcoef=maxcoef)
   wrms = sqrt(sum((y - matmul(x,beta))**2))
   write (*,*) "sum(abs(beta)) = ", sum(abs(beta))
   write (*,*) "sum(beta^2) = ", sum(beta**2)

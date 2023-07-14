@@ -8,8 +8,10 @@ gfortran -pg -g -fbacktrace -fexternal-blas -fallow-argument-mismatch -std=legac
 gfortran -pg -g -fbacktrace -fexternal-blas -fallow-argument-mismatch -std=legacy -c dqrinc.f
 gfortran -pg -g -fbacktrace -fexternal-blas -fallow-argument-mismatch -std=legacy -c dqrinr.f
 gfortran -pg -g -fbacktrace -fexternal-blas -c lassofun.f90
+gfortran -pg -g -fbacktrace -fexternal-blas -c wrappers.f90
 gfortran -pg -g -fbacktrace -fexternal-blas -c main.f90
-gfortran -pg -g -fbacktrace -fexternal-blas -o main main.o lassofun.o dqrinc.o dqrinr.o \
+gfortran -pg -g -fbacktrace -fexternal-blas -o main main.o wrappers.o lassofun.o dqrinc.o \
+	 dqrinr.o \
 	 dqrtv1.o dqrot.o dqrqh.o dqhqr.o dgqvec.o -lblas -llapack
 
 # gfortran -fexternal-blas -fallow-argument-mismatch -std=legacy -c dgqvec.f
@@ -20,7 +22,8 @@ gfortran -pg -g -fbacktrace -fexternal-blas -o main main.o lassofun.o dqrinc.o d
 # gfortran -fexternal-blas -fallow-argument-mismatch -std=legacy -c dqrinc.f
 # gfortran -fexternal-blas -fallow-argument-mismatch -std=legacy -c dqrinr.f
 # gfortran -fexternal-blas -c lassofun.f90
+# gfortran -fexternal-blas -c wrappers.f90
 # gfortran -fexternal-blas -c main.f90
-# gfortran -fexternal-blas -o main main.o lassofun.o dqrinc.o dqrinr.o \
+# gfortran -fexternal-blas -o main main.o wrappers.o lassofun.o dqrinc.o dqrinr.o \
 # 	 dqrtv1.o dqrot.o dqrqh.o dqhqr.o dgqvec.o -lblas -llapack
 

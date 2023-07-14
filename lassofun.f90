@@ -2,18 +2,18 @@ module lassofun
   implicit none
 
   private
-  public :: lasso_active_set
+  public :: lasso
 
 contains
 
-  function lasso_active_set(x,y,t,w0,maxiter,threshold,verbose) result(w)
+  function lasso(x,y,t,w0,maxiter,threshold,verbose) result(w)
     ! This is a Fortran re-implementation of the active set method
-    ! coded by Mark Schmidt in octave. Original source and notes:
+    ! coded by Mark Schmidt (UBC) in octave. Original source and notes:
     !
     ! https://www.cs.ubc.ca/~schmidtm/Software/lasso.html
     !
     ! Mark Schmidt. Graphical Model Structure Learning with L1-Regularization. Ph.D. Thesis, University of British Columbia, 2010.
-
+    !
     real*8, intent(in) :: x(:,:)
     real*8, intent(in) :: y(:)
     real*8, intent(in) :: t
@@ -40,7 +40,7 @@ contains
     ! process the optional parameters
     maxiter_ = 10000
     if (present(maxiter)) maxiter_ = maxiter
-    threshold_ = 1d-7
+    threshold_ = 1d-9
     if (present(threshold)) threshold_ = threshold
     verbose_ = .false.
     if (present(verbose)) verbose_ = verbose
@@ -281,7 +281,7 @@ contains
 
     end function ssign
 
-  end function lasso_active_set
+  end function lasso
 
   subroutine qr(x,q,r,rows,cols)
     real*8, intent(inout) :: x(:,:)
