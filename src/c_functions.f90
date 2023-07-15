@@ -6,8 +6,7 @@ subroutine lasso_c(rows,cols,x,y,t,w) bind(c,name="lasso_c")
   real(c_double), intent(in), value :: t
   real(c_double), intent(inout) :: w(cols)
 
-  ! w = lasso_for_acps(rows,cols,x,y,t)
-  write (*,*) "bleh!"
+  w = lasso_for_acps(rows,cols,x,y,t)
 
 end subroutine lasso_c
 

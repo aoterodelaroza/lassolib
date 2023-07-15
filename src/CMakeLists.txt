@@ -12,7 +12,8 @@ if ("${CMAKE_Fortran_COMPILER_ID}" MATCHES "GNU")
 endif()
 
 ## executable and shared and static libraries
-add_library(lasso STATIC ${SOURCES_Fortran})
+#add_library(lasso STATIC ${SOURCES_Fortran})
+add_library(lasso SHARED ${SOURCES_Fortran})
 
 add_executable(lasso_main ${SOURCES_Fortran_Main})
 target_link_libraries(lasso_main PRIVATE lasso)
