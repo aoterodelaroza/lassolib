@@ -28,6 +28,9 @@ target_link_libraries(lasso PRIVATE ${LAPACK_LIBRARIES})
 # set_property(TARGET lasso_shared APPEND PROPERTY LINK_FLAGS "${LAPACK_LINKER_FLAGS}")
 # target_link_libraries(lasso_shared PRIVATE ${LAPACK_LIBRARIES})
 
+## copy the header file
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lassolib.h ${CMAKE_CURRENT_BINARY_DIR}/lassolib.h COPYONLY)
+
 ## install the binary
 # install(TARGETS lasso lasso_shared lasso_main RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(TARGETS lasso lasso_main RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
