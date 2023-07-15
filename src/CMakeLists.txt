@@ -29,7 +29,7 @@ target_link_libraries(lasso PRIVATE ${LAPACK_LIBRARIES})
 # target_link_libraries(lasso_shared PRIVATE ${LAPACK_LIBRARIES})
 
 ## copy the header file
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lassolib.h ${CMAKE_CURRENT_BINARY_DIR}/lassolib.h COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/liblasso.h ${CMAKE_CURRENT_BINARY_DIR}/liblasso.h COPYONLY)
 
 ## install the binary
 # install(TARGETS lasso lasso_shared lasso_main RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
