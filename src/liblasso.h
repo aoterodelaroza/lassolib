@@ -5,7 +5,7 @@
 // defined in c_functions.f90.
 
 extern "C"{
-void lasso_c(int rows, int cols, double *x, double *y, double t, double *w);
+void lasso_c(int rows, int cols, double *x, double *y, double t, double *w, double *wrms);
 }
 
 #endif
