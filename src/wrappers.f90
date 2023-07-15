@@ -18,18 +18,20 @@ contains
 
     real*8, allocatable :: factor(:), xtilde(:,:)
     logical, allocatable :: idx(:)
-    logical :: verbose_
+    logical :: verbose_, maxcoef_
     real*8 :: ratio, wrms
     integer :: i
 
     verbose_ = .false.
     if (present(verbose)) verbose_ = verbose
+    maxcoef_ = .false.
+    if (present(maxcoef)) maxcoef_ = .true.
 
     if (present(yadd)) then
        write (*,*) "not implemented yet!"
        stop 1
     end if
-    if (present(maxcoef)) then
+    if (maxcoef_) then
        ! initialize
        allocate(factor(cols),xtilde(rows,cols))
        factor = 1d0
