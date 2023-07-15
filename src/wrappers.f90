@@ -6,17 +6,6 @@ module wrappers
 
 contains
 
-  subroutine lasso_c(rows,cols,x,y,t,w) bind(c,name="lasso_c")
-    use iso_c_binding, only: c_int, c_double
-    integer(c_int), intent(in), value :: rows, cols
-    real(c_double), intent(in) :: x(rows,cols), y(rows)
-    real(c_double), intent(in), value :: t
-    real(c_double), intent(inout) :: w(cols)
-
-    w = lasso_for_acps(rows,cols,x,y,t)
-
-  end subroutine lasso_c
-
   function lasso_for_acps(rows,cols,x,y,t,maxcoef,yadd,verbose) result(w)
     use lassofun, only: lasso
     integer, intent(in) :: rows, cols

@@ -1,6 +1,6 @@
 ## sources
 set(SOURCES_F77 dgqvec.f dqhqr.f dqrinc.f dqrinr.f dqrot.f dqrqh.f dqrtv1.f)
-set(SOURCES_F90 lassofun.f90 wrappers.f90)
+set(SOURCES_F90 lassofun.f90 wrappers.f90 c_functions.f90)
 set(SOURCES_Fortran_Main main.f90)
 set(SOURCES_Fortran ${SOURCES_F77} ${SOURCES_F90})
 set(SOURCES ${SOURCES_Fortran} ${SOURCES_Fortran_Main})
