@@ -257,19 +257,19 @@ contains
 
     function xsign(w) result(sw)
       real*8, intent(in) :: w(:)
-      integer :: sw(size(w,1))
+      integer*1 :: sw(size(w,1))
 
       where(w == 0)
          sw = 0
       elsewhere
-         sw = int(sign(1d0,w))
+         sw = int(sign(1d0,w),1)
       end where
 
     end function xsign
 
     function ssign(w) result(sw)
       real*8, intent(in) :: w
-      integer :: sw
+      integer*1 :: sw
 
       if (w == 0) then
          sw = 0
@@ -291,7 +291,6 @@ contains
     integer :: lwork, info, i
     real*8, allocatable :: tau(:), work(:)
     real*8 :: xwork(1)
-    real*8, allocatable :: rred(:,:), qred(:,:)
 
     ! initialize
     allocate(tau(min(rows,cols)))

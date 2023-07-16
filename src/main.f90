@@ -13,9 +13,8 @@ program lasso_fortran
   real*8, allocatable :: maxcoef(:), wsqrt(:), y(:), beta(:)
   real*8 :: wrms
 
-  character*1, parameter :: lname(*) = (/"l","s","p","d","f","g","h"/)
-
-  integer :: i, ios
+  integer*8 :: i
+  integer :: ios
 
   open(lu,file="octavedump.dat",status="old",form="unformatted",access="stream",iostat=ios)
   if (ios /= 0) then
