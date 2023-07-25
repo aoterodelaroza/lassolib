@@ -6,6 +6,7 @@
 
 extern "C"{
 void lasso_c(int rows, int cols, double *x, double *y, double t, double *w, double *wrms, double *maxcoefp);
+void lasso_cv_c(int rows, int cols, double *x, double *y, double *t, double *w, double *wrms);
 }
 
 #endif
