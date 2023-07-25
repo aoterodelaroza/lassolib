@@ -207,7 +207,6 @@ contains
     w = lasso(x,y,t,w0=w)
     wrms = sqrt(sum((yv - matmul(xv,w))**2))
     write (*,'("* FINAL WRMS = ",F10.4/)') wrms
-    stop 1
 
   contains
     subroutine calculate_wrms(n,wrms,et,cold)
